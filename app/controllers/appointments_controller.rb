@@ -1,5 +1,7 @@
 class AppointmentsController < ApplicationController
 
+  before_action :get_appointment, only: [:show, :edit, :update, :destroy]
+
   def index
     @appointments = Appointment.all
   end
@@ -9,7 +11,6 @@ class AppointmentsController < ApplicationController
   end
 
   def show
-    @appointment = Appointment.find params[:id]
   end
 
   def create
@@ -22,15 +23,21 @@ class AppointmentsController < ApplicationController
   end
 
   def edit
-    @appointment = Appointment.find params[:id]
   end
 
   def update
-    @appointment = Appointment.find params[:id]
     if @appointment.update appointment_params
       redirect_to @appointment
     else
       redirect_to edit_appointment_path(@appointment), notice: error_messages
+    end
+  end
+
+  def destroy
+    if @appointment.destroy
+      redirect_to appointments_path
+    else
+      redirect_to @appointment, notice: error_messages
     end
   end
 
@@ -42,6 +49,10 @@ class AppointmentsController < ApplicationController
 
   def error_messages
     @appointment.errors.full_messages.join("; ")
+  end
+
+  def get_appointment
+    @appointment = Appointment.find params[:id]
   end
 
 end
