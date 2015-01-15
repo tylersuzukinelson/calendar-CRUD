@@ -1,6 +1,6 @@
 <h1>Create New Appointment</h1>
 
-<%= "<em>#{flash[:notice]}</em><br/><br />" if flash[:notice] %>
+<%= "<em>#{flash[:notice]}</em><br/><br />".html_safe if flash[:notice] %>
 
 <%= form_for @appointment do |f| %>
   <%= f.label :appt_time %>

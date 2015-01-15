@@ -1,7 +1,7 @@
 class AppointmentsController < ApplicationController
 
   def index
-
+    @appointments = Appointment.all
   end
 
   def new
@@ -18,7 +18,7 @@ class AppointmentsController < ApplicationController
       redirect_to @appointment
     else
       redirect_to new_appointment_path, notice: error_messages
-    end
+    end 
   end
 
   private
