@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get "/appointments/new" => "appointments#new", as: :new_appointment
+  get "/appointments/:id" => "appointments#show", as: :appointment
   root "appointments#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
