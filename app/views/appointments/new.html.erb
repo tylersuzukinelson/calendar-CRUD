@@ -2,22 +2,4 @@
 
 <%= "<em>#{flash[:notice]}</em><br/><br />".html_safe if flash[:notice] %>
 
-<%= form_for @appointment do |f| %>
-  <%= f.label :appt_time %>
-  <%= f.datetime_local_field :appt_time %>
-  <br />
-  <%= f.label :duration %>
-  <%= f.number_field :duration %>
-  <br />
-  <%= f.label :task %>
-  <%= f.text_field :task %>
-  <br />
-  <%= f.label :details %>
-  <%= f.text_area :details %>
-  <br />
-  <%= f.label :person %>
-  <%= f.text_field :person %>
-  <br />
-  <%= f.submit %>
-  <%= f.button "Reset", type: :reset %>
-<% end %>
+<%= render "form" %>

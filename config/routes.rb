@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post "/appointments" => "appointments#create", as: :appointments
   get "/appointments" => "appointments#index"
   get "/appointments/:id/edit" => "appointments#edit", as: :edit_appointment
+  patch "/appointments/:id" => "appointments#update"
+  delete "/appointments/:id" => "appointments#destroy"
   root "appointments#index"
 
   # The priority is based upon order of creation: first created -> highest priority.

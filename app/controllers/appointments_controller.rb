@@ -9,7 +9,7 @@ class AppointmentsController < ApplicationController
   end
 
   def show
-
+    @appointment = Appointment.find params[:id]
   end
 
   def create
@@ -19,6 +19,19 @@ class AppointmentsController < ApplicationController
     else
       redirect_to new_appointment_path, notice: error_messages
     end 
+  end
+
+  def edit
+    @appointment = Appointment.find params[:id]
+  end
+
+  def update
+    @appointment = Appointment.find params[:id]
+    if @appointment.update appointment_params
+      redirect_to @appointment
+    else
+      redirect_to edit_appointment_path(@appointment), notice: error_messages
+    end
   end
 
   private
