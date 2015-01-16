@@ -3,7 +3,7 @@ class AppointmentsController < ApplicationController
   before_action :get_appointment, only: [:show, :edit, :update, :destroy]
 
   def index
-    @appointments = Appointment.all
+    @appointments = Appointment.all.order("created_at DESC")
   end
 
   def new

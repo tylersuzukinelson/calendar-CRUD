@@ -15,8 +15,21 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+<% if request.env['PATH_INFO'] == appointments_path %>
+  <% page_flag = 0 %>
+<% elsif request.env['PATH_INFO'] == new_appointment_path %>
+  <% page_flag = 1 %>
+<% else %>
+  <% page_flag = -1 %>
+<% end %>
 <div class="container">
+
+  <div class="row">
+    <ul class="nav nav-tabs">
+      <li role="presentation"<%= ' class="active"'.html_safe if page_flag == 0 %>><%= link_to "Home", appointments_path %></li>
+      <li role="presentation"<%= ' class="active"'.html_safe if page_flag == 1 %>><%= link_to "New Appointment", new_appointment_path %></li>
+    </ul>
+  </div>
 
   <%= yield %>
 
