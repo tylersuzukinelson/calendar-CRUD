@@ -1,19 +1,26 @@
 <%= form_for @appointment do |f| %>
-  <%= f.label :appt_time %>
-  <%= f.datetime_local_field :appt_time %>
-  <br />
-  <%= f.label :duration %>
-  <%= f.number_field :duration %>
-  <br />
-  <%= f.label :task %>
-  <%= f.text_field :task %>
-  <br />
-  <%= f.label :details %>
-  <%= f.text_area :details %>
-  <br />
-  <%= f.label :person %>
-  <%= f.text_field :person %>
-  <br />
-  <%= f.submit %>
-  <%= f.button "Reset", type: :reset %>
+  <div class="form_group">
+    <%= f.label :appt_time %>
+    <%= f.datetime_local_field :appt_time, class: "form-control" %>
+  </div>
+  <div class="form_group">
+    <%= f.label :duration %>
+    <%= f.number_field :duration, class: "form-control" %>
+  </div>
+  <div class="form_group">
+    <%= f.label :task %>
+    <%= f.text_field :task, class: "form-control" %>
+  </div>
+  <div class="form_group">
+    <%= f.label :details %>
+    <%= f.text_area :details, class: "form-control" %>
+  </div>
+  <div class="form_group">
+    <%= f.label :person %>
+    <%= f.text_field :person, class: "form-control" %>
+  </div>
+  <div class="form_group">
+    <%= f.submit class: "btn btn-primary" %>
+    <%= f.button "Reset", type: :reset %>
+  </div>
 <% end %>
